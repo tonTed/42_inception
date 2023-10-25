@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  nginx:
+    build:
+      context: requirements/nginx
+    container_name: nginx
+
+  mariadb:
+    build:
+      context: requirements/mariadb
+    container_name: mariadb
+
+  wordpress:
+    build: 
+      context: requirements/wordpress
+    container_name: wordpress
