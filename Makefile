@@ -6,7 +6,22 @@ down:
 
 re: down up
 
-nginx:
+fclean:
+	docker system prune -a
+
+build:
+	docker-compose -f srcs/docker-compose.yml build
+
+exec-nginx:
 	docker exec -it nginx sh
+
+exec-mariadb:
+	docker exec -it mariadb sh
+
+run-nginx:
+	docker run -it --rm -p 443:80 srcs-nginx
+
+run-mariadb:
+	docker run -it --rm -p 3306:3306 srcs-mariadb
 
 Phony: up down re nginx
