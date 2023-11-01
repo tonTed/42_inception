@@ -15,7 +15,7 @@ WORKDIR /var/www
 RUN wget https://fr.wordpress.org/wordpress-6.0-fr_FR.tar.gz -P .
 RUN tar -xzf wordpress-6.0-fr_FR.tar.gz && rm wordpress-6.0-fr_FR.tar.gz
 
-# ADD conf/wp-config.php /var/www/wordpress/wp-config.php
+ADD conf/wp-config.php /var/www/wordpress/wp-config.php
 
 
 EXPOSE 9000
