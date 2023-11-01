@@ -18,6 +18,9 @@ exec-nginx:
 exec-mariadb:
 	docker exec -it mariadb sh
 
+exec-wp:
+	docker exec -it wordpress sh
+
 run-nginx:
 	docker run -it --rm -p 443:80 srcs-nginx
 

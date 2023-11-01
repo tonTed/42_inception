@@ -7,23 +7,28 @@ services:
     container_name: nginx
     ports:
       - 443:80
-    networks:
-      - inception
-
-  mariadb:
-    build:
-      context: requirements/mariadb
-    container_name: mariadb
-    env_file:
-      - .env
-    networks:
+    depends_on:
+      - wordpress
+    networks: 
       - inception
 
   wordpress:
     build: 
       context: requirements/wordpress
     container_name: wordpress
+    networks:
+      - inception
 
 networks:
   inception:
     driver: bridge
+
+
+  # mariadb:
+  #   build:
+  #     context: requirements/mariadb
+  #   container_name: mariadb
+  #   env_file:
+  #     - .env
+  #   networks:
+  #     - inception
