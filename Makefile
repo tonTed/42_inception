@@ -16,7 +16,7 @@ exec-nginx:
 	docker exec -it nginx sh
 
 exec-mariadb:
-	docker exec -it mariadb sh
+	docker exec -it mariadb bash
 
 exec-wp:
 	docker exec -it wordpress sh

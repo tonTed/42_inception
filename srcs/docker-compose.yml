@@ -18,17 +18,19 @@ services:
     container_name: wordpress
     networks:
       - inception
+    depends_on:
+      - mariadb
+
+  mariadb:
+    build:
+      context: requirements/mariadb
+    container_name: mariadb
+    env_file:
+      - .env
+    networks:
+      - inception
 
 networks:
   inception:
     driver: bridge
 
-
-  # mariadb:
-  #   build:
-  #     context: requirements/mariadb
-  #   container_name: mariadb
-  #   env_file:
-  #     - .env
-  #   networks:
-  #     - inception
