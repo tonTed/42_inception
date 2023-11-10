@@ -6,20 +6,24 @@ services:
       context: requirements/nginx
     container_name: nginx
     ports:
-      - 443:80
+      - 80:80
     depends_on:
       - wordpress
-    networks: 
+    networks:
       - inception
+    env_file:
+      - .env
 
   wordpress:
-    build: 
+    build:
       context: requirements/wordpress
     container_name: wordpress
     networks:
       - inception
     depends_on:
       - mariadb
+    env_file:
+      - .env
 
   mariadb:
     build:
