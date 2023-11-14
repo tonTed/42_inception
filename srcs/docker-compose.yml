@@ -24,6 +24,8 @@ services:
       - mariadb
     env_file:
       - .env
+    volumes:
+      - wordpress_data:/var/www/wordpress
 
   mariadb:
     build:
@@ -33,8 +35,23 @@ services:
       - .env
     networks:
       - inception
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+volumes:
+  wordpress_data:
+    driver: local
+    driver_opts:
+      o: 'bind'
+      type: 'none'
+      device: '/Users/tonted/data/wordpress'
+  mariadb_data:
+    driver: local
+    driver_opts:
+      o: 'bind'
+      type: 'none'
+      device: '/Users/tonted/data/mariadb'
 
 networks:
   inception:
     driver: bridge
-

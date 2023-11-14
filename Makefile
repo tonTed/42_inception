@@ -7,7 +7,7 @@ down:
 re: down up
 
 fclean:
-	docker system prune -a
+	docker system prune -af && docker volume prune -f
 
 build:
 	docker-compose -f srcs/docker-compose.yml build
