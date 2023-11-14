@@ -47,13 +47,13 @@ volumes:
     driver_opts:
       o: 'bind'
       type: 'none'
-      device: '/Users/tonted/data/wordpress'
+      device: '/Users/tblanco/data/wordpress'
   mariadb_data:
     driver: local
     driver_opts:
       o: 'bind'
       type: 'none'
-      device: '/Users/tonted/data/mariadb'
+      device: '/Users/tblanco/data/mariadb'
 
 networks:
   inception:
