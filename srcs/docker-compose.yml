@@ -13,6 +13,7 @@ services:
       - inception
     env_file:
       - .env
+    restart: always
 
   wordpress:
     build:
@@ -26,6 +27,7 @@ services:
       - .env
     volumes:
       - wordpress_data:/var/www/wordpress
+    restart: always
 
   mariadb:
     build:
@@ -37,6 +39,7 @@ services:
       - inception
     volumes:
       - mariadb_data:/var/lib/mysql
+    restart: always
 
 volumes:
   wordpress_data:
