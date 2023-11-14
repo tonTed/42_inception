@@ -8,7 +8,7 @@ ADD conf/ssl.conf /etc/nginx/ssl/ssl.conf
 # ADD conf/nginx-selfsigned.crt /etc/ssl/certs/nginx-selfsigned.crt
 # ADD conf/nginx-selfsigned.key /etc/ssl/private/nginx-selfsigned.key
 
- Commande pour creer un certificat auto-signé
+ # Commande pour creer un certificat auto-signé
  RUN openssl req -x509 -nodes -days 365 \
  	-subj "/C=CA/ST=QC/O=42Quebec/CN=tblanco.42.fr" \
  	-addext "subjectAltName=DNS:tblanco.42.fr" \
